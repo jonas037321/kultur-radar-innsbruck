@@ -6,3 +6,4 @@ venv/
 data/moodle_*
 browser_use_workspace/
 *.pdf
+.idea/
