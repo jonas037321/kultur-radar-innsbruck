@@ -107,7 +107,10 @@ def main():
                     help="Hör-Links für die nächsten N Treibhaus-Konzerte suchen")
     args = ap.parse_args()
     if not args.suchbegriff and not args.kultur_radar:
-        ap.error("Suchbegriff oder --kultur-radar N angeben")
+        # ohne Parameter gestartet (z.B. ▶ in PyCharm) -> interaktiv nachfragen
+        args.suchbegriff = input("Suchbegriff: ").strip()
+        if not args.suchbegriff:
+            ap.error("Suchbegriff oder --kultur-radar N angeben")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=HEADLESS)
