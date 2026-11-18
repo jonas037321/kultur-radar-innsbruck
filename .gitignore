@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/moodle_*
+browser_use_workspace/
+*.pdf
